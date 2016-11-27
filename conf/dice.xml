@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< .working
+<!--
+ Copyright 2016 Corticera Software Foundation
+ 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ 
+      http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License. 
+ -->
+ 
+<!DOCTYPE Dice SYSTEM "server.dtd" >
+<!-- The Dice Server -->
+<Dice>
+
+||||||| .old
+
+=======
+<!--
+ Copyright 2016 Corticera Software Foundation
+ 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ 
+      http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License. 
+ -->
+ 
+>>>>>>> .new
+	<!-- Listeners are used to listen to the lifecycle events of the component. 
+<<<<<<< .working
+		A listener must be an implementation of class org.corticerasf.dice.lifecycle.LifecycleListener 
+||||||| .old
+		A listener must be an implementation of class com.sarvika.corticera.lifecycle.LifecycleListener 
+=======
+		A listener must be an implementation of class org.corticerasf.corticera.lifecycle.LifecycleListener 
+>>>>>>> .new
+		A listener could be defined using the listener tag inside any component, 
+		and the server would register it. -->
+
+	<!-- Register the ServerInfoLoggerListener -->
+<<<<<<< .working
+	<Listener class="org.corticerasf.dice.startup.ServerInfoLogListener" />
+||||||| .old
+	<Listener class="com.sarvika.corticera.startup.ServerInfoLogListener" />
+=======
+	<Listener class="org.corticerasf.corticera.startup.ServerInfoLogListener" />
+>>>>>>> .new
+
+	<!-- A "Service" is a collection of one or more "Connectors" that share 
+		the same "Engine". Note: The "Engine" is a "Container". -->
+	<Srvc name="Dice">
+	
+		<!-- A "Connector" represents an endpoint by which requests are received 
+			and responses are returned. -->
+
+		<!-- Define a non-SSL/TLS HTTP/1.1 Connector on port 8080 -->
+		<Connector port="8080" protocol="HTTP/1.1" timeout="20000" />
+
+		<!-- An Engine represents the entry point within the server that processes 
+			every request. The Engine implementation for Dice stand alone analyzes 
+			the HTTP headers included with the request, and passes them on to the appropriate 
+			Host. -->
+		<Engine name="Dice">
+			
+			<!-- A host is a virtual host which serves content placed in its document 
+				base. -->
+			<Host name="localhost" docbase="webcontent" hotDeployment="true" />
+
+		</Engine>
+	</Srvc>
+</Dice>

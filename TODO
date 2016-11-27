@@ -1,0 +1,10 @@
+Dice
+	1. Implement JNDI
+	2. Implement a property change listener
+	3. Add ClassLoaders on each class.
+	4. Complete the HostConfig
+
+conf/dice.xml
+	1. Add JNDI Naming Resources Support					/Dice/GlobalJNDINames
+	2. Add security realm									/Dice/Srvc/Engine/SecurityRealm
+	** 3. Add "Pipelining" support using "Valves"			/Dice/Srvc/Engine/Host/Valve
