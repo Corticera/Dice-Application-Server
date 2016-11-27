@@ -50,4 +50,4 @@ The project is structured into the following directory tree:
  
  K. **Dice/bin**: The directory which contains the executable for startup/shutdown. This directory also contains the startup JAR.
  
- L. **Dice/lib**: All the dependencies of the application server goes in here. This directory is included in the classpath of bootstrap.||||||| .r4
+ L. **Dice/lib**: All the dependencies of the application server goes in here. This directory is included in the classpath of bootstrap.
