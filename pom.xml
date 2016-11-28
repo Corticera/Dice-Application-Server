@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  Copyright 2016 Corticera Software Foundation
- 
+
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
- 
+
       http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
- limitations under the License. 
+ limitations under the License.
  -->
- 
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-		
+
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.corticerasf</groupId>
 	<version>0.1.0</version>
 	<name>Dice Application Server</name>
-	
+
 	<properties>
 		<dice.home>${project.basedir}</dice.home>
 		<dice.base>${dice.home}</dice.base>
 	</properties>
-	
+
 	<build>
 		<plugins>
-		
+
 			<plugin>
                 <groupId>org.apache.maven.plugins
                 </groupId>
@@ -115,9 +115,9 @@
 						</configuration>
 					</execution>
 				</executions>
-				
+
 			</plugin>
-            
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -192,7 +192,7 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.0</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
 		<dependency>
 			<groupId>dom4j</groupId>
@@ -203,269 +203,4 @@
 	</dependencies>
 
 	<artifactId>dice-appserver</artifactId>
-</project>||||||| .r4
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.sarvika</groupId>
-	<version>1.0</version>
-	<name>Corticera Application Server</name>
-
-	<dependencies>
-
-		<!-- Logging -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.5.8</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.5.8</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.0</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
-		<dependency>
-			<groupId>dom4j</groupId>
-			<artifactId>dom4j</artifactId>
-			<version>1.4</version>
-		</dependency>
-
-
-	</dependencies>
-
-	<artifactId>corticera</artifactId>
 </project>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
- Copyright 2016 Corticera Software Foundation
- 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
- 
-      http://www.apache.org/licenses/LICENSE-2.0
- 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License. 
- -->
- 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-		
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.sarvika</groupId>
-	<version>1.0</version>
-	<name>Corticera Application Server</name>
-	
-	<properties>
-		<corticera.home>${project.basedir}</corticera.home>
-		<corticera.base>${corticera.home}</corticera.base>
-	</properties>
-	
-	<build>
-		<plugins>
-		
-			<plugin>
-                <groupId>org.apache.maven.plugins
-                </groupId>
-                <artifactId>maven-compiler-plugin
-                </artifactId>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-            <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.2</version>
-				<executions>
-					<execution>
-						<id>build-startup-jar</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-						<configuration>
-							<includes>
-								<include>**/startup/**</include>
-							</includes>
-							<outputDirectory>bin</outputDirectory>
-							<finalName>startup</finalName>
-							<archive>
-								<manifest>
-									<addClasspath>true</addClasspath>
-									<classpathPrefix>../lib/</classpathPrefix>
-									<mainClass>org.corticerasf.corticera.startup.Bootstrap</mainClass>
-								</manifest>
-								<manifestEntries>
-									<Class-Path>../lib/corticera-core.jar ../lib/servlet-api.jar ../lib/corticera.jar</Class-Path>
-								</manifestEntries>
-							</archive>
-						</configuration>
-					</execution>
-					<execution>
-						<id>build-core-jar</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-						<configuration>
-							<includes>
-								<include>**/core/**</include>
-							</includes>
-							<outputDirectory>lib</outputDirectory>
-							<finalName>corticera-core</finalName>
-							<archive>
-								<manifest>
-									<addClasspath>true</addClasspath>
-									<mainClass>org.corticerasf.corticera.startup.Bootstrap</mainClass>
-								</manifest>
-							</archive>
-						</configuration>
-					</execution>
-					<execution>
-						<id>build-servlet-api-jar</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-						<configuration>
-							<includes>
-								<include>**/servlet/**</include>
-							</includes>
-							<outputDirectory>lib</outputDirectory>
-							<finalName>servlet-api</finalName>
-							<archive>
-								<manifest>
-									<addClasspath>true</addClasspath>
-									<mainClass>org.corticerasf.corticera.startup.Bootstrap</mainClass>
-								</manifest>
-							</archive>
-						</configuration>
-					</execution>
-					<execution>
-						<id>full-build</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-						<configuration>
-							<excludes>
-								<exclude>**/startup/**</exclude>
-								<exclude>**/core/**</exclude>
-								<exclude>**/javax/**</exclude>
-							</excludes>
-							<outputDirectory>lib</outputDirectory>
-							<finalName>corticera</finalName>
-							<archive>
-								<manifest>
-									<addClasspath>true</addClasspath>
-									<mainClass>org.corticerasf.corticera.startup.Bootstrap</mainClass>
-								</manifest>
-							</archive>
-						</configuration>
-					</execution>
-				</executions>
-				
-			</plugin>
-            
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.4</version>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>lib</outputDirectory>
-							<overWriteReleases>false</overWriteReleases>
-							<overWriteSnapshots>false</overWriteSnapshots>
-							<overWriteIfNewer>true</overWriteIfNewer>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.apache.maven.plugins
-										</groupId>
-										<artifactId>
-											maven-dependency-plugin
-										</artifactId>
-										<versionRange>
-											[2.4,)
-										</versionRange>
-										<goals>
-											<goal>
-												copy-dependencies
-											</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
-
-	<dependencies>
-		<!-- Logging -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.14</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.0</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
-		<dependency>
-			<groupId>dom4j</groupId>
-			<artifactId>dom4j</artifactId>
-			<version>1.4</version>
-		</dependency>
-
-	</dependencies>
-
-	<artifactId>corticera</artifactId>
-</project>>>>>>>> .r13
